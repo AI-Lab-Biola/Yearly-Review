@@ -145,6 +145,24 @@ const testimonials = [
     designation: "AI Lab Apprentice",
     src: "/images/Joseph.jpeg",
   },
+  {
+    quote: "The AI Lab is such a great opportunity to put your ideas and skills into action. I got to travel to Colorado for the Gloo Hackathon, make incredible connections, and build a project that saved the housing department over 40–50 hours of manual work. The AI Lab has prepared me to create meaningful products and use technology in a God-honoring way.",
+    name: "Megan Lai",
+    designation: "AI Lab Associate",
+    src: "/images/Maggy.jpeg",
+  },
+  {
+    quote: "Learning happens when there is friction — the process of struggling gives you a stronger understanding, and that's one thing AI can't automate. This year I discovered how many different ways people use AI, from rapid prototyping to architecting entire systems. Computer science is cool, and I'm still figuring out the rest.",
+    name: "Jefferson Hong",
+    designation: "AI Lab Apprentice",
+    src: "/images/Jefferson.jpeg",
+  },
+  {
+    quote: "I came in with a strong math background, but this year pushed me to apply those skills in a much more practical, collaborative setting. Working on a real integrated data system taught me how to handle messy datasets and build usable tools — not just analyze. This community showed me how we can all grow with AI together.",
+    name: "Maddie Ebright",
+    designation: "AI Lab Apprentice",
+    src: "/images/Maddie.jpeg",
+  },
 ];
 
 const fallTimeline = [
@@ -161,6 +179,7 @@ const springTimeline = [
   { date: "Mar 2026", title: "AI Lab High School Camp", desc: "In collaboration with Biola's School of Science and Technology, we hosted an AI hackathon for high school students from across the Los Angeles area. Teams competed by building software projects from scratch — a hands-on introduction to AI, problem-solving, and technology with purpose.", img: ["/images/Highschool AI.png", "/images/Highschool AI 1.png"], imgPosition: "center 30%" },
   { date: "Apr 2026", title: "CUPA HR Conference", desc: "Returned to the CUPA HR Conference to go deeper on AI in human resources — covering data visualization, workforce analytics, ethical AI, deepfake policy, and the future outlook for HR leaders navigating a rapidly shifting landscape.", img: ["/images/Cupa HR Spring.jpg", "/images/Cupa Hr Spring 1.jpg"] },
   { date: "Apr 2026", title: "Missional AI Conference", desc: "Represented Biola at the Missional AI Conference alongside Kingdom-minded technologists.", img: "/images/Missional AI.png", imgPosition: "center 30%" },
+  { date: "Spring 2026", title: "Biola Health Center Inventory System", desc: "AI Lab student Felicity Zhang built a smart inventory tracking system for Biola's Health Center. The software uses a scanner to automatically add and subtract inventory in real time, and includes an automated alert system that notifies staff when items are running low or approaching expiration. The prototype is currently in testing and nearing deployment.", img: "/images/Healthcare.png" },
   { date: "Spring 2026", title: "Grace Adventures Database Integration", desc: "Biola student Maddie Ebright partnered with the AI Lab to build a custom software solution for Grace Adventures, a Christian camp and outdoor ministry. Grace Adventures had three separate databases with no unified way to access or query them together. Maddie leveraged AI tools to develop an integrated system that pulls from all three databases in one place — giving the Grace Adventures team a single interface to find information, surface insights, and streamline operations. The project is still in active development.", img: "/images/Grace Adventures Medi.png" },
   { date: "Apr 2026", title: "Mission Trip to the Philippines", desc: "From April 10–19, the AI Lab traveled to the Philippines alongside Ani Fund and Sacred Harvest Foundation to train tribal communities, churches, and ministries on effective and responsible AI use. We taught handwritten form digitization (converting stacks of paper records into structured Excel dashboards instantly), automation workflows to eliminate manual data re-entry, Claude + Canva integration for professional on-brand design at minimal cost, and hands-on one-on-one sessions walking through real use cases from their actual work. A full documentary of the journey is coming soon.", img: ["/images/Philippines Trip.png", "/images/Philippines.jpeg", "/images/Philippines 2.jpeg", "/images/Philippines 3.jpeg", "/images/Phillippes 4.jpeg", "/images/Philippines 5.jpeg"] },
   { date: "Spring 2026", title: "Launched a Course for Fall 2026", desc: "Developed and will teach a new 15-week course at Biola's Crowell School of Business: BUSN 450 — \"How to Build a Business with AI.\" Students build an entire business from scratch using AI responsibly across research, data analysis and visualization, marketing and content generation, website development and automation, and ethical AI grounded in human dignity, flourishing, and Imago Dei. All materials are built from real-world AI Lab client work.", img: ["/images/Class 2026.jpeg", "/images/Class.png"] },
@@ -322,11 +341,11 @@ export default function Home() {
       {/* ── Nav ───────────────────────────────────────────────────────────────── */}
       <motion.nav
         style={{ backgroundColor: `rgba(11, 17, 32, ${navOpacity})` }}
-        className="fixed top-0 left-0 right-0 z-50 h-[120px] backdrop-blur-xl border-b border-[var(--border)]/60"
+        className="fixed top-0 left-0 right-0 z-50 h-[64px] backdrop-blur-xl border-b border-[var(--border)]/60"
       >
         <div className="max-w-[1200px] mx-auto px-7 h-full flex items-center justify-between">
           <a href="#home" className="flex items-center gap-3">
-            <img src="/images/AI Lab Logo White.png" alt="AI Lab at Biola University" className="h-28" />
+            <img src="/images/AI Lab Logo White.png" alt="AI Lab at Biola University" className="h-10" />
           </a>
           <ul className="hidden md:flex gap-7 list-none items-center">
             {navLinks.map(({ label, href, id }) => (

@@ -175,11 +175,12 @@ const fallTimeline = [
 ];
 
 const springTimeline = [
-  { date: "Mar 2026", title: "AI Summit at Oklahoma Baptist University", desc: "Represented the AI Lab at the Oklahoma Baptist University AI Summit as keynote speaker and breakout session leader. Sessions covered the current capabilities of AI and their implications for higher education, applying AI responsibly within a Christian ethical framework, structuring assignments effectively in the age of AI, and thinking critically about AI implementation in the classroom. Thank you to Joshua Shoffner and OBU for the wonderful hospitality.", img: ["/images/Oklahoma.jpeg", "/images/Oklahoma 2.jpeg"] },
+  { date: "Mar 2026", title: "AI Summit at Oklahoma Baptist University", desc: "Represented the AI Lab at the Oklahoma Baptist University AI Summit as keynote speaker and breakout session leader. Sessions covered the current capabilities of AI and their implications for higher education, applying AI responsibly within a Christian ethical framework, structuring assignments effectively in the age of AI, and thinking critically about AI implementation in the classroom. Thank you to Joshua Shoffner and OBU for the wonderful hospitality.", img: "/images/Oklahoma 2.jpeg" },
   { date: "Mar 2026", title: "AI Lab High School Camp", desc: "In collaboration with Biola's School of Science and Technology, we hosted an AI hackathon for high school students from across the Los Angeles area. Teams competed by building software projects from scratch — a hands-on introduction to AI, problem-solving, and technology with purpose.", img: ["/images/Highschool AI.png", "/images/Highschool AI 1.png"], imgPosition: "center 30%" },
   { date: "Apr 2026", title: "CUPA HR Conference", desc: "Returned to the CUPA HR Conference to go deeper on AI in human resources — covering data visualization, workforce analytics, ethical AI, deepfake policy, and the future outlook for HR leaders navigating a rapidly shifting landscape.", img: ["/images/Cupa HR Spring.jpg", "/images/Cupa Hr Spring 1.jpg"] },
   { date: "Apr 2026", title: "Missional AI Conference", desc: "Represented Biola at the Missional AI Conference alongside Kingdom-minded technologists.", img: "/images/Missional AI.png", imgPosition: "center 30%" },
   { date: "Spring 2026", title: "Biola Health Center Inventory System", desc: "AI Lab student Felicity Zhang built a smart inventory tracking system for Biola's Health Center. The software uses a scanner to automatically add and subtract inventory in real time, and includes an automated alert system that notifies staff when items are running low or approaching expiration. The prototype is currently in testing and nearing deployment.", img: "/images/Healthcare.png" },
+  { date: "Spring 2026", title: "Student Articles by Joseph Han", desc: "AI Lab student Joseph Han wrote two student articles this semester — a summary of Claude's New Constitution 2026 and a brief summary of the International AI Safety Report. Both pieces distill dense, technical AI policy material into accessible reading for students, faculty, and anyone trying to keep up with where the field is heading.", img: "/images/Joseph Article.png", links: [{ label: "Claude's Constitution 2026", href: "https://docs.google.com/document/d/1RIobOM3eLqp1cKHYc4dOptSY2YSRjcZXki011t7R11k/edit?usp=sharing" }, { label: "International AI Safety Report", href: "https://docs.google.com/document/d/1lYdgVtocII_dTHynq5mIDsKsfDm5UQ6wQId19JznVLk/edit?usp=sharing" }] },
   { date: "Spring 2026", title: "Grace Adventures Database Integration", desc: "Biola student Maddie Ebright partnered with the AI Lab to build a custom software solution for Grace Adventures, a Christian camp and outdoor ministry. Grace Adventures had three separate databases with no unified way to access or query them together. Maddie leveraged AI tools to develop an integrated system that pulls from all three databases in one place — giving the Grace Adventures team a single interface to find information, surface insights, and streamline operations. The project is still in active development.", img: "/images/Grace Adventures Medi.png" },
   { date: "Apr 2026", title: "Mission Trip to the Philippines", desc: "From April 10–19, the AI Lab traveled to the Philippines alongside Ani Fund and Sacred Harvest Foundation to train tribal communities, churches, and ministries on effective and responsible AI use. We taught handwritten form digitization (converting stacks of paper records into structured Excel dashboards instantly), automation workflows to eliminate manual data re-entry, Claude + Canva integration for professional on-brand design at minimal cost, and hands-on one-on-one sessions walking through real use cases from their actual work. A full documentary of the journey is coming soon.", img: ["/images/Philippines Trip.png", "/images/Philippines.jpeg", "/images/Philippines 2.jpeg", "/images/Philippines 3.jpeg", "/images/Phillippes 4.jpeg", "/images/Philippines 5.jpeg"] },
   { date: "Spring 2026", title: "Launched a Course for Fall 2026", desc: "Developed and will teach a new 15-week course at Biola's Crowell School of Business: BUSN 450 — \"How to Build a Business with AI.\" Students build an entire business from scratch using AI responsibly across research, data analysis and visualization, marketing and content generation, website development and automation, and ethical AI grounded in human dignity, flourishing, and Imago Dei. All materials are built from real-world AI Lab client work.", img: ["/images/Class 2026.jpeg", "/images/Class.png"] },
@@ -482,6 +483,28 @@ export default function Home() {
       </section>
 
       <SectionFade from="var(--surface)" to="var(--bg)" />
+
+      {/* ── Thank You ──────────────────────────────────────────────────────── */}
+      <section id="thank-you" className="py-16 md:py-28 bg-[var(--bg)] relative overflow-hidden">
+        <DotGrid y={gridY} />
+        <div className="max-w-[760px] mx-auto px-4 sm:px-7 relative text-center">
+          <RevealOnScroll>
+            <span className="inline-block text-[11px] font-bold tracking-[0.18em] uppercase text-[var(--gold)] mb-3">
+              With Gratitude
+            </span>
+            <h2 className="text-[clamp(1.75rem,5vw,3rem)] font-bold tracking-tight text-[var(--text)] leading-tight">
+              Thank You
+            </h2>
+            <div className="mt-4 mx-auto w-12 h-1 rounded-full bg-[var(--red)]" />
+            <p className="mt-8 text-[var(--muted)] text-base sm:text-lg leading-relaxed">
+              To everyone who has walked alongside the AI Lab this year — thank you. To those who have given financially, prayed for our work, followed along on social media, visited our space on campus, attended a workshop, or simply cheered us on from afar: none of this happens without you. Your generosity and encouragement have shaped every moment of the past year.
+            </p>
+            <p className="mt-6 text-[var(--text)] text-base sm:text-lg leading-relaxed font-medium">
+              We are deeply excited for what God has in store for the academic year of 2026–2027.
+            </p>
+          </RevealOnScroll>
+        </div>
+      </section>
 
       {/* ── Newsletter ─────────────────────────────────────────────────────── */}
       <section id="newsletter" className="py-16 md:py-28 bg-[var(--bg)] relative overflow-hidden">

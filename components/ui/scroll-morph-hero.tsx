@@ -71,7 +71,7 @@ const MAX_SCROLL = 3000;
 const BIOLA_IMAGES = [
   "/images/biola/hackathon-group.jpg",
   "/images/biola/hackathon-winners.jpg",
-  "/images/biola/speaker-presentation.jpg",
+  "/images/biola/christians-for-impact-2.jpeg",
   "/images/biola/philippines-selfie.jpg",
   "/images/biola/philippines-classroom.jpg",
   "/images/biola/philippines-workshop.jpg",

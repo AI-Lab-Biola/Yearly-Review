@@ -247,33 +247,33 @@ export const CircularTestimonials = ({
               </motion.p>
             </motion.div>
           </AnimatePresence>
-          <div className="arrow-buttons">
-            <button
-              className="arrow-button prev-button"
-              onClick={handlePrev}
-              style={{
-                backgroundColor: hoverPrev ? colorArrowHoverBg : colorArrowBg,
-              }}
-              onMouseEnter={() => setHoverPrev(true)}
-              onMouseLeave={() => setHoverPrev(false)}
-              aria-label="Previous testimonial"
-            >
-              <FaArrowLeft size={22} color={colorArrowFg} />
-            </button>
-            <button
-              className="arrow-button next-button"
-              onClick={handleNext}
-              style={{
-                backgroundColor: hoverNext ? colorArrowHoverBg : colorArrowBg,
-              }}
-              onMouseEnter={() => setHoverNext(true)}
-              onMouseLeave={() => setHoverNext(false)}
-              aria-label="Next testimonial"
-            >
-              <FaArrowRight size={22} color={colorArrowFg} />
-            </button>
-          </div>
         </div>
+      </div>
+      <div className="arrow-buttons">
+        <button
+          className="arrow-button prev-button"
+          onClick={handlePrev}
+          style={{
+            backgroundColor: hoverPrev ? colorArrowHoverBg : colorArrowBg,
+          }}
+          onMouseEnter={() => setHoverPrev(true)}
+          onMouseLeave={() => setHoverPrev(false)}
+          aria-label="Previous testimonial"
+        >
+          <FaArrowLeft size={22} color={colorArrowFg} />
+        </button>
+        <button
+          className="arrow-button next-button"
+          onClick={handleNext}
+          style={{
+            backgroundColor: hoverNext ? colorArrowHoverBg : colorArrowBg,
+          }}
+          onMouseEnter={() => setHoverNext(true)}
+          onMouseLeave={() => setHoverNext(false)}
+          aria-label="Next testimonial"
+        >
+          <FaArrowRight size={22} color={colorArrowFg} />
+        </button>
       </div>
       <style jsx>{`
         .testimonial-container {
@@ -302,11 +302,8 @@ export const CircularTestimonials = ({
         .testimonial-content {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          min-height: 20rem;
-        }
-        .testimonial-content > :global(div) {
-          flex: 1 1 auto;
+          height: 17rem;
+          overflow-y: auto;
         }
         .name {
           font-weight: bold;
@@ -321,8 +318,8 @@ export const CircularTestimonials = ({
         .arrow-buttons {
           display: flex;
           gap: 1rem;
-          padding-top: 1.5rem;
-          margin-top: auto;
+          justify-content: center;
+          padding-top: 2.5rem;
         }
         .arrow-button {
           width: 2.5rem;
@@ -345,6 +342,9 @@ export const CircularTestimonials = ({
           .image-container {
             height: 22rem;
           }
+          .testimonial-content {
+            height: 22rem;
+          }
           .arrow-button {
             width: 2.7rem;
             height: 2.7rem;
@@ -365,16 +365,13 @@ export const CircularTestimonials = ({
             height: 24rem;
           }
           .testimonial-content {
-            min-height: 24rem;
+            height: 24rem;
           }
           .designation {
             margin-bottom: 2rem;
           }
           .quote {
             line-height: 1.75;
-          }
-          .arrow-buttons {
-            padding-top: 0;
           }
         }
       `}</style>

@@ -163,6 +163,12 @@ const testimonials = [
     designation: "AI Lab Apprentice",
     src: "/images/Maddie.jpeg",
   },
+  {
+    quote: "I came into the lab with no tech skills, the youngest person here, still figuring out if I could keep up. The lab opened doors I didn't expect — Gloo Hackathon, Missional AI, rooms first years don't get access to. But the growth that surprised me most wasn't the opportunities, it was the thinking. It was a safe place to be uncertain and grow.",
+    name: "Felicity Zhang",
+    designation: "AI Lab Associate",
+    src: "/images/Felicity.jpeg",
+  },
 ];
 
 const fallTimeline = [

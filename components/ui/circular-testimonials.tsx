@@ -303,6 +303,10 @@ export const CircularTestimonials = ({
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          min-height: 20rem;
+        }
+        .testimonial-content > :global(div) {
+          flex: 1 1 auto;
         }
         .name {
           font-weight: bold;
@@ -318,6 +322,7 @@ export const CircularTestimonials = ({
           display: flex;
           gap: 1rem;
           padding-top: 1.5rem;
+          margin-top: auto;
         }
         .arrow-button {
           width: 2.5rem;
@@ -358,6 +363,9 @@ export const CircularTestimonials = ({
           }
           .image-container {
             height: 24rem;
+          }
+          .testimonial-content {
+            min-height: 24rem;
           }
           .designation {
             margin-bottom: 2rem;

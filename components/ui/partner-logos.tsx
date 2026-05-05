@@ -98,6 +98,18 @@ const partners: Partner[] = [
       />
     ),
   },
+  {
+    id: "sacred-harvest",
+    name: "Sacred Harvest",
+    url: "https://sacredharvest.com",
+    logo: (
+      <img
+        src="/images/sacred harvest.png"
+        alt="Sacred Harvest"
+        className="h-7 sm:h-8 w-auto object-contain opacity-30 group-hover:opacity-90 transition-opacity duration-200 [filter:brightness(0)_invert(1)]"
+      />
+    ),
+  },
 ];
 
 // ─── Component ───────────────────────────────────────────────────────────────

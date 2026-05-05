@@ -20,16 +20,16 @@ function SectionHeading({
   description?: string;
 }) {
   return (
-    <RevealOnScroll className="mb-16">
+    <RevealOnScroll className="mb-10 md:mb-16">
       <span className="inline-block text-[11px] font-bold tracking-[0.18em] uppercase text-[var(--gold)] mb-3">
         {label}
       </span>
-      <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold tracking-tight text-[var(--text)] leading-tight">
+      <h2 className="text-[clamp(1.75rem,5vw,3rem)] font-bold tracking-tight text-[var(--text)] leading-tight">
         {title}
       </h2>
       <div className="mt-4 w-12 h-1 rounded-full bg-[var(--red)]" />
       {description && (
-        <p className="mt-5 text-[var(--muted)] text-base max-w-lg">{description}</p>
+        <p className="mt-5 text-[var(--muted)] text-sm sm:text-base max-w-lg">{description}</p>
       )}
     </RevealOnScroll>
   );
@@ -309,7 +309,7 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
       </div>
 
       {/* Right slot + mobile fallback */}
-      <div className={`md:block ${!isLeft ? "" : "md:pointer-events-none"}`}>
+      <div className={`flex-1 min-w-0 md:flex-none md:block ${!isLeft ? "" : "md:pointer-events-none"}`}>
         <div className={`md:hidden ${isLeft ? "block" : "hidden"}`}>{card}</div>
         {!isLeft && card}
       </div>
@@ -343,36 +343,36 @@ export default function Home() {
         style={{ backgroundColor: `rgba(11, 17, 32, ${navOpacity})` }}
         className="fixed top-0 left-0 right-0 z-50 h-[64px] backdrop-blur-xl border-b border-[var(--border)]/60"
       >
-        <div className="max-w-[1200px] mx-auto px-7 h-full flex items-center justify-between">
-          <a href="#home" className="flex items-center gap-3">
-            <img src="/images/AI Lab Logo White.png" alt="AI Lab at Biola University" className="h-10" />
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-7 h-full flex items-center justify-between gap-3">
+          <a href="#home" className="flex items-center gap-3 min-w-0">
+            <img src="/images/AI Lab Logo White.png" alt="AI Lab at Biola University" className="h-8 sm:h-10" />
           </a>
-          <ul className="hidden md:flex gap-7 list-none items-center">
-            {navLinks.map(({ label, href, id }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  className={`text-sm font-semibold tracking-wide transition-colors duration-300 no-underline ${
-                    activeSection === id
-                      ? "text-[var(--gold)]"
-                      : "text-[var(--text)]/60 hover:text-[var(--gold)]"
-                  }`}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-            <li>
-              <a
-                href="https://www.biola.edu/ai-lab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-bold px-4 py-1.5 rounded-full border border-[var(--red)] text-[var(--red)] hover:bg-[var(--red)] hover:text-white transition-all no-underline"
-              >
-                AI Lab ↗
-              </a>
-            </li>
-          </ul>
+          <div className="flex items-center gap-5 lg:gap-7">
+            <ul className="hidden md:flex gap-5 lg:gap-7 list-none items-center">
+              {navLinks.map(({ label, href, id }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className={`text-sm font-semibold tracking-wide transition-colors duration-300 no-underline ${
+                      activeSection === id
+                        ? "text-[var(--gold)]"
+                        : "text-[var(--text)]/60 hover:text-[var(--gold)]"
+                    }`}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="https://www.biola.edu/ai-lab"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 rounded-full border border-[var(--red)] text-[var(--red)] hover:bg-[var(--red)] hover:text-white transition-all no-underline whitespace-nowrap"
+            >
+              AI Lab ↗
+            </a>
+          </div>
         </div>
       </motion.nav>
 
@@ -384,9 +384,9 @@ export default function Home() {
       <SectionFade from="var(--bg)" to="var(--bg)" />
 
       {/* ── Testimonials ──────────────────────────────────────────────────────── */}
-      <section id="testimonials" className="py-28 bg-[var(--bg)] relative overflow-hidden">
+      <section id="testimonials" className="py-16 md:py-28 bg-[var(--bg)] relative overflow-hidden">
         <DotGrid y={gridY} />
-        <div className="max-w-[1200px] mx-auto px-7 relative">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-7 relative">
           <SectionHeading label="Student Voices" title="What Our Students Say" />
           <RevealOnScroll delay={0.15}>
             <div className="flex items-center justify-center relative" style={{ maxWidth: "1456px" }}>
@@ -402,9 +402,9 @@ export default function Home() {
                   arrowHoverBackground: "#EDA72B",
                 }}
                 fontSizes={{
-                  name: "28px",
-                  designation: "20px",
-                  quote: "20px",
+                  name: "clamp(20px, 4.5vw, 28px)",
+                  designation: "clamp(14px, 3vw, 20px)",
+                  quote: "clamp(15px, 3vw, 20px)",
                 }}
               />
             </div>
@@ -415,12 +415,12 @@ export default function Home() {
       <SectionFade from="var(--bg)" to="var(--bg)" />
 
       {/* ── Team Photo ────────────────────────────────────────────────────────── */}
-      <section className="py-16 bg-[var(--bg)] relative overflow-hidden">
-        <div className="max-w-[1200px] mx-auto px-7">
+      <section className="py-12 md:py-16 bg-[var(--bg)] relative overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-7">
           <RevealOnScroll>
             <div className="flex flex-col items-center gap-6 text-center">
               <SectionHeading label="Our People" title="AI Lab Team 2025–2026" />
-              <div className="rounded-2xl overflow-hidden border border-[var(--border)] w-[70%]">
+              <div className="rounded-2xl overflow-hidden border border-[var(--border)] w-full md:w-[70%]">
                 <img
                   src="/images/AI Lab Team.jpg"
                   alt="AI Lab Team 2025–2026"
@@ -438,9 +438,9 @@ export default function Home() {
       <SectionFade from="var(--bg)" to="var(--bg)" />
 
       {/* ── Partners ──────────────────────────────────────────────────────────── */}
-      <section id="partners" className="py-28 bg-[var(--bg)] relative overflow-hidden">
+      <section id="partners" className="py-16 md:py-28 bg-[var(--bg)] relative overflow-hidden">
         <DotGrid y={gridY} />
-        <div className="max-w-[1200px] mx-auto px-7 relative">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-7 relative">
           <SectionHeading
             label="Collaborations"
             title="Our Partners"
@@ -455,9 +455,9 @@ export default function Home() {
       <SectionFade from="var(--bg)" to="var(--surface)" />
 
       {/* ── Timeline ──────────────────────────────────────────────────────────── */}
-      <section id="timeline" className="py-28 bg-[var(--surface)] relative overflow-hidden">
+      <section id="timeline" className="py-16 md:py-28 bg-[var(--surface)] relative overflow-hidden">
         <DotGrid y={gridY} />
-        <div className="max-w-[1200px] mx-auto px-7 relative">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-7 relative">
           <SectionHeading
             label="Academic Year"
             title="2025–2026 Timeline"
@@ -467,7 +467,7 @@ export default function Home() {
           {/* Vertical track */}
           <div className="relative">
             <div className="absolute left-[6px] md:left-1/2 md:-translate-x-px top-2 bottom-2 w-px bg-gradient-to-b from-[var(--red)] via-[var(--border)] to-transparent" />
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-8 md:gap-10">
               <SeasonDivider label="Fall 2025" />
               {fallTimeline.map((item, i) => (
                 <TimelineCard key={i} item={item} index={i} />
@@ -484,22 +484,22 @@ export default function Home() {
       <SectionFade from="var(--surface)" to="var(--bg)" />
 
       {/* ── Newsletter ─────────────────────────────────────────────────────── */}
-      <section id="newsletter" className="py-28 bg-[var(--bg)] relative overflow-hidden">
+      <section id="newsletter" className="py-16 md:py-28 bg-[var(--bg)] relative overflow-hidden">
         <DotGrid y={gridY} />
-        <RevealOnScroll className="max-w-[640px] mx-auto px-7 relative">
+        <RevealOnScroll className="max-w-[640px] mx-auto px-4 sm:px-7 relative">
           <NewsletterSignup />
         </RevealOnScroll>
       </section>
 
       {/* ── Footer ────────────────────────────────────────────────────────────── */}
-      <footer className="py-10 bg-[var(--bg)] border-t border-[var(--border)]">
-        <div className="max-w-[1200px] mx-auto px-7 flex items-center justify-between flex-wrap gap-4">
-          <div className="flex items-center gap-6">
-            <img src="/images/White Biola Logo.png" alt="Biola University" className="h-6 opacity-50" />
-            <div className="w-px h-5 bg-[var(--border)]" />
-            <img src="/images/AI Lab Logo White.png" alt="AI Lab" className="h-6 opacity-50" />
+      <footer className="py-10 md:py-12 bg-[var(--bg)] border-t border-[var(--border)]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-7 flex items-center justify-between flex-wrap gap-6">
+          <div className="flex items-center gap-6 sm:gap-8">
+            <img src="/images/White Biola Logo Sideway.png" alt="Biola University" className="h-12 sm:h-16 opacity-80 object-contain" />
+            <div className="w-px h-10 bg-[var(--border)]" />
+            <img src="/images/AI Lab Logo White.png" alt="AI Lab" className="h-12 sm:h-16 opacity-80 object-contain" />
           </div>
-          <p className="text-[0.78rem] text-[var(--muted)]">
+          <p className="text-[0.7rem] sm:text-[0.78rem] text-[var(--muted)]">
             © 2026 AI Lab at Biola University · 13800 Biola Ave, La Mirada, CA
           </p>
         </div>

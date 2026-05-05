@@ -40,6 +40,10 @@ function calculateGap(width: number) {
   const maxWidth = 1456;
   const minGap = 60;
   const maxGap = 86;
+  if (width < 768) {
+    // Mobile: keep gap small so side images peek without going off-screen
+    return Math.max(width * 0.12, 28);
+  }
   if (width <= minWidth) return minGap;
   if (width >= maxWidth)
     return Math.max(minGap, maxGap + 0.06018 * (width - maxWidth));
@@ -254,7 +258,7 @@ export const CircularTestimonials = ({
               onMouseLeave={() => setHoverPrev(false)}
               aria-label="Previous testimonial"
             >
-              <FaArrowLeft size={28} color={colorArrowFg} />
+              <FaArrowLeft size={22} color={colorArrowFg} />
             </button>
             <button
               className="arrow-button next-button"
@@ -266,7 +270,7 @@ export const CircularTestimonials = ({
               onMouseLeave={() => setHoverNext(false)}
               aria-label="Next testimonial"
             >
-              <FaArrowRight size={28} color={colorArrowFg} />
+              <FaArrowRight size={22} color={colorArrowFg} />
             </button>
           </div>
         </div>
@@ -275,16 +279,16 @@ export const CircularTestimonials = ({
         .testimonial-container {
           width: 100%;
           max-width: 56rem;
-          padding: 2rem;
+          padding: 0.5rem;
         }
         .testimonial-grid {
           display: grid;
-          gap: 5rem;
+          gap: 2rem;
         }
         .image-container {
           position: relative;
           width: 100%;
-          height: 24rem;
+          height: 17rem;
           perspective: 1000px;
         }
         .testimonial-image {
@@ -305,19 +309,19 @@ export const CircularTestimonials = ({
           margin-bottom: 0.25rem;
         }
         .designation {
-          margin-bottom: 2rem;
+          margin-bottom: 1.25rem;
         }
         .quote {
-          line-height: 1.75;
+          line-height: 1.6;
         }
         .arrow-buttons {
           display: flex;
-          gap: 1.5rem;
-          padding-top: 3rem;
+          gap: 1rem;
+          padding-top: 1.5rem;
         }
         .arrow-button {
-          width: 2.7rem;
-          height: 2.7rem;
+          width: 2.5rem;
+          height: 2.5rem;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -329,9 +333,37 @@ export const CircularTestimonials = ({
         .word {
           display: inline-block;
         }
+        @media (min-width: 640px) {
+          .testimonial-container {
+            padding: 1.5rem;
+          }
+          .image-container {
+            height: 22rem;
+          }
+          .arrow-button {
+            width: 2.7rem;
+            height: 2.7rem;
+          }
+          .arrow-buttons {
+            gap: 1.5rem;
+          }
+        }
         @media (min-width: 768px) {
+          .testimonial-container {
+            padding: 2rem;
+          }
           .testimonial-grid {
             grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+          }
+          .image-container {
+            height: 24rem;
+          }
+          .designation {
+            margin-bottom: 2rem;
+          }
+          .quote {
+            line-height: 1.75;
           }
           .arrow-buttons {
             padding-top: 0;

@@ -114,6 +114,34 @@ export default function IntroAnimation() {
     const container = containerRef.current;
     if (!container) return;
 
+    // Mobile: don't hijack scroll — auto-advance the morph animation so the
+    // user can scroll naturally through the page
+    const isMobile = window.innerWidth < 768 || "ontouchstart" in window;
+    if (isMobile) {
+      let raf: number;
+      let animStart: number | null = null;
+      const startDelay = 2800; // wait for circle phase to settle
+      const animDuration = 1800; // morph from circle → arc
+      const target = 700; // virtualScroll value that yields morphValue = 1
+
+      const animate = (now: number) => {
+        if (animStart === null) animStart = now + startDelay;
+        const elapsed = now - animStart;
+        if (elapsed < 0) {
+          raf = requestAnimationFrame(animate);
+          return;
+        }
+        const progress = Math.min(elapsed / animDuration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        scrollRef.current = eased * target;
+        virtualScroll.set(scrollRef.current);
+        if (progress < 1) raf = requestAnimationFrame(animate);
+      };
+
+      raf = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(raf);
+    }
+
     const handleWheel = (e: WheelEvent) => {
       // Release scroll when maxed out and user scrolls down
       if (scrollRef.current >= MAX_SCROLL && e.deltaY > 0) return;
@@ -123,25 +151,9 @@ export default function IntroAnimation() {
       virtualScroll.set(next);
     };
 
-    let touchStartY = 0;
-    const handleTouchStart = (e: TouchEvent) => { touchStartY = e.touches[0].clientY; };
-    const handleTouchMove = (e: TouchEvent) => {
-      const delta = touchStartY - e.touches[0].clientY;
-      touchStartY = e.touches[0].clientY;
-      if (scrollRef.current >= MAX_SCROLL && delta > 0) return;
-      e.preventDefault();
-      const next = Math.min(Math.max(scrollRef.current + delta, 0), MAX_SCROLL);
-      scrollRef.current = next;
-      virtualScroll.set(next);
-    };
-
     container.addEventListener("wheel", handleWheel, { passive: false });
-    container.addEventListener("touchstart", handleTouchStart, { passive: false });
-    container.addEventListener("touchmove", handleTouchMove, { passive: false });
     return () => {
       container.removeEventListener("wheel", handleWheel);
-      container.removeEventListener("touchstart", handleTouchStart);
-      container.removeEventListener("touchmove", handleTouchMove);
     };
   }, [virtualScroll]);
 

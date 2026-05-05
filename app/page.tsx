@@ -507,7 +507,7 @@ export default function Home() {
               To everyone who has walked alongside the AI Lab this year — thank you. To those who have given financially, prayed for our work, followed along on social media, visited our space on campus, attended a workshop, or simply cheered us on from afar: none of this happens without you. Your generosity and encouragement have shaped every moment of the past year.
             </p>
             <p className="mt-6 text-[var(--text)] text-base sm:text-lg leading-relaxed font-medium">
-              We are deeply excited for what God has in store for the academic year of 2026–2027.
+              We are excited for what God has in store for the academic year of 2026–2027.
             </p>
           </RevealOnScroll>
         </div>
